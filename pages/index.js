@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import Link from 'next/link';
+
 function Header({ title }) {
   return <h1>{ title ? title : 'Default Title' }</h1>;
 }
@@ -16,6 +18,8 @@ export default function HomePage() {
   return (
     <div>
       <Header title="Develop. Preview. Ship." />
+
+      <h2>Read <Link href="/posts/first-post">this page!</Link></h2>
 
       <ul>
         {names.map((name) => (
