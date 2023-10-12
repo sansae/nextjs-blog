@@ -1,6 +1,21 @@
 import { useState } from 'react';
 
+import Image from 'next/image';
+
 import Link from 'next/link';
+
+function ProfilePic() {
+  return (
+    <div>
+      <Image
+        src="/images/profile.jpg"
+        height={144}
+        width={144}
+        alt="profile pic"
+      />
+    </div>
+  )
+}
 
 function Header({ title }) {
   return <h1>{ title ? title : 'Default Title' }</h1>;
@@ -20,6 +35,8 @@ export default function HomePage() {
       <Header title="Develop. Preview. Ship." />
 
       <h2>Read <Link href="/posts/first-post">this page!</Link></h2>
+
+      <ProfilePic />
 
       <ul>
         {names.map((name) => (
