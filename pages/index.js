@@ -8,7 +8,7 @@ import utilStyles from '../styles/utils.module.css';
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout home={true}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
