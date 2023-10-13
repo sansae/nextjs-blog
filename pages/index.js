@@ -1,50 +1,27 @@
-import { useState } from 'react';
-
-import Image from 'next/image';
+import Head from 'next/head';
 
 import Link from 'next/link';
 
-function ProfilePic() {
+import Layout, { siteTitle } from '../components/layout';
+
+import utilStyles from '../styles/utils.module.css';
+
+export default function Home() {
   return (
-    <div>
-      <Image
-        src="/images/profile.jpg"
-        height={144}
-        width={144}
-        alt="profile pic"
-      />
-    </div>
-  )
-}
+    <Layout>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
 
-function Header({ title }) {
-  return <h1>{ title ? title : 'Default Title' }</h1>;
-}
+      <section className={utilStyles.headingMd}>
+        <p>[Your Self Introduction]</p>
+        <p>
+          (This is a sample website - you’ll be building a site like this on{' '}
+          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+        </p>
+      </section>
 
-export default function HomePage() {
-  const names = ['Ada', 'Grace', 'Marg'];
-
-  const [likes, setLikes] = useState(0);
-
-  function handleClick() {
-    setLikes(likes + 1);
-  }
-
-  return (
-    <div>
-      <Header title="Develop. Preview. Ship." />
-
-      <h2>Read <Link href="/posts/first-post">this page!</Link></h2>
-
-      <ProfilePic />
-
-      <ul>
-        {names.map((name) => (
-          <li key={name}>{name}</li>
-        ))}
-      </ul>
-
-      <button onClick={handleClick}>Like {likes}</button>
-    </div>
+      <Link href="./posts/first-post">Go to first post</Link>
+    </Layout>
   )
 }
