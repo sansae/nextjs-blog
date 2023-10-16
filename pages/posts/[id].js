@@ -25,11 +25,14 @@ export default function Post({ postData }) {
   return (
     <>
       <Layout>
-        {postData.title}
-        <br />
-        {postData.id}
+        <strong>{postData.title}</strong>
         <br />
         {postData.date}
+        <br />
+
+        <div style={{ marginTop:'30px' }}>
+          {postData.content}
+        </div>
       </Layout>;
     </>
   )
