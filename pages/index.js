@@ -10,6 +10,7 @@ import { getSortedPostsData } from '../lib/posts';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
+
   return {
     props: {
       allPostsData,
@@ -37,17 +38,13 @@ export default function Home({ allPostsData }) {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              {title}
-              <br />
-              {id}
+              <Link href={`/posts/${id}`}>{title}</Link>
               <br />
               {date}
             </li>
           ))}
         </ul>
       </section>
-
-      <Link href="./posts/first-post">Go to first post</Link>
     </Layout>
   )
 }
