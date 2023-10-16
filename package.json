@@ -14,5 +14,10 @@
   },
   "devDependencies": {
     "sass": "^1.69.3"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }
