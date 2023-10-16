@@ -2,6 +2,8 @@ import Layout from '../../components/layout';
 
 import { getAllPostIds, getPostData } from '../../lib/posts';
 
+import ReactMarkdown from 'react-markdown';
+
 export async function getStaticProps({ params }) {
   const postData = getPostData(params.id);
 
@@ -31,7 +33,7 @@ export default function Post({ postData }) {
         <br />
 
         <div style={{ marginTop:'30px' }}>
-          {postData.content}
+          <ReactMarkdown>{ postData.content }</ReactMarkdown>
         </div>
       </Layout>;
     </>
