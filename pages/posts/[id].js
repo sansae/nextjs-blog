@@ -5,7 +5,7 @@ import { getAllPostIds, getPostData } from '../../lib/posts';
 import ReactMarkdown from 'react-markdown';
 
 export async function getStaticProps({ params }) {
-  const postData = getPostData(params.id);
+  const postData = await getPostData(params.id);
 
   return {
     props: {
@@ -32,9 +32,9 @@ export default function Post({ postData }) {
         {postData.date}
         <br />
 
-        <div style={{ marginTop:'30px' }}>
-          <ReactMarkdown>{ postData.content }</ReactMarkdown>
-        </div>
+        <ReactMarkdown>{postData.content}</ReactMarkdown>
+
+        {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} style={{ marginTop:'30px' }} /> */}
       </Layout>;
     </>
   )
