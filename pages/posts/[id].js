@@ -32,7 +32,7 @@ export default function Post({ postData }) {
         {postData.date}
         <br />
 
-        <ReactMarkdown>{postData.content}</ReactMarkdown>
+        <ReactMarkdown>{postData.contentHtml}</ReactMarkdown>
 
         {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} style={{ marginTop:'30px' }} /> */}
       </Layout>;
