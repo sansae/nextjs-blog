@@ -4,6 +4,8 @@ import Layout from '../../components/layout';
 
 import { getAllPostIds, getPostData } from '../../lib/posts';
 
+import Date from '../../components/date';
+
 import ReactMarkdown from 'react-markdown';
 
 export async function getStaticProps({ params }) {
@@ -35,11 +37,11 @@ export default function Post({ postData }) {
 
         <strong>{postData.title}</strong>
         <br />
-        {postData.date}
+        <Date dateString={postData.date} />
         <br />
-
         <ReactMarkdown>{postData.contentHtml}</ReactMarkdown>
 
+        {/* only if using react remark, but using remark breaks app for some reason */}
         {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} style={{ marginTop:'30px' }} /> */}
       </Layout>;
     </>
