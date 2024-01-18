@@ -20,7 +20,21 @@ export async function getStaticProps() {
   };
 }
 
+const getInfo = async () => {
+  const response = await fetch("/api/start", {
+    cache: "no-cache"
+  });
+
+  const data = await response.json();
+
+  console.log("1-18-24, 10:17")
+  console.log("data: ", data);
+}
+
 export default function Home({ allPostsData }) {
+
+  getInfo()
+
   return (
     <Layout home={true}>
       <Head>
