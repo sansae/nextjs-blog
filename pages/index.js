@@ -27,13 +27,20 @@ const getInfo = async () => {
 
   const data = await response.json();
 
-  console.log("1-18-24, 10:17")
   console.log("data: ", data);
+}
+
+const getCocktailInfo = async () => {
+  const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=`);
+  const cocktailData = await response.json();
+
+  console.log("cocktailData: ", cocktailData);
 }
 
 export default function Home({ allPostsData }) {
 
-  getInfo()
+  console.log("1-18-24, 10:28")
+  getCocktailInfo()
 
   return (
     <Layout home={true}>
